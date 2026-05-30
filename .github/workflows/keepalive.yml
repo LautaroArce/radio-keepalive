@@ -1,0 +1,11 @@
+name: Keep Radio Alive
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping stream
+        run: curl -s --max-time 10 "https://uk25freenew.listen2myradio.com/live.mp3?typeportmount=s1_10368_stream_246599498" || true
